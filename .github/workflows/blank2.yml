@@ -12,4 +12,4 @@ jobs:
           gh issue --repo QuentinBessot/grafana \
           create --title "Issue title" --body "Issue body"
         env:
-          GH_TOKEN: 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
+          GH_TOKEN: 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
