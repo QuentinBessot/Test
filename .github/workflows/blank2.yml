@@ -1,6 +1,5 @@
 name: Open new issue
-on:
-  workflow_dispatch
+on: workflow_dispatch
 
 jobs:
   open-issue:
@@ -9,9 +8,8 @@ jobs:
       contents: read
       issues: write
     steps:
-      - name: Open new issue
+      - run: |
+          gh issue --repo ${{ github.repository }} \
+            create --title "Issue title" --body "Issue body"
         env:
-          GH_TOKEN: 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
-        run: |
-          gh issue create --repo QuentinBessot/grafana \
-          --title "Issue title" --body "Issue body"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
